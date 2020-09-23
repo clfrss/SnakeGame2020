@@ -39,10 +39,16 @@ window.onload = function(){
     var tam = 5;
     var som;
     var pontos = document.getElementById('pontuação');
+    var gameOver = document.getElementById('gameover');
 
     function ponto() {
-        pontos.innerHTML = 'Pontuação:  \n' + (cobra.length - 5) + ' Maçãs!';
+        pontos.innerHTML = (cobra.length - 4) + ' Maçã(s)!';
     }
+
+    /*function GameOver() {
+        gameOver = new Image("gameover.png");
+        gameOver.innerHTML = Image(gameover);
+    }*/
 
     function jogo(){
         
@@ -68,14 +74,15 @@ window.onload = function(){
         /*desenho do quadrado*/
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
+
+
         /*desenho da cobra*/
         ctx.fillStyle = "green";
         for (var i = 0; i < cobra.length; i++){
             ctx.fillRect(cobra[i].x * grid, cobra[i].y * grid, grid - 1, grid - 1);
             /*o for ele é infinito, fazendo a cobrinha rodar para sempre*/
             if(cobra[i].x == positionX && cobra[i].y == positionY){
-                tam = 5;     
+                tam = 5;
             }
         }
         
